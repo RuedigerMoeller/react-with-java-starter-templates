@@ -44,7 +44,7 @@ public class MyApp extends Actor<MyApp> {
                 )
                 .allDev(DEVMODE)
                 .jsPostProcessors(new ClojureJSPostProcessor()) // uses google clojure transpiler to ES5 (PRODMODE only)
-                // (PRODMODE only: look (and create if not present) static build artefact for budled index.html [avoids rebundling on first request in prodmode]
+                // (PRODMODE only: look (and create if not present) static build artefact for bundled index.html [avoids rebundling on first request in prodmode]
                 // Warning: you need to delete this file in order to force a rebuild then
                 .productionBuildDir(new File("./dist") )
                 .buildResourcePath()
