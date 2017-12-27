@@ -1,0 +1,8 @@
+JNPMConfig {
+  versionMap: {
+      react :  "^16.2.0"
+      react-dom :  "^16.2.0"
+  }
+  repo: "http://registry.npmjs.org/"
+  transformFunction: React.createElement
+}
