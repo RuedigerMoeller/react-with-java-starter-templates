@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {KClient} from 'kontraktor-client'; // java connectivity + required by hot reloading internally
-import {EventEmitter} from 'events';       // keep things simple: app is main component + emitter
+import {EventEmitter} from 'events';
 
 export class MyApp extends Component {
 
@@ -9,7 +9,15 @@ export class MyApp extends Component {
     this.state = { msg: ""};
     this.server = null;
     this.session = null;
-    this.emitter = new EventEmitter();
+    this.emitter = new EventEmitter(); // keep things simple: app is main component + emitter
+  }
+
+  addListener(name,listener) {
+    this.emitter.addListener(name,listener);
+  }
+
+  removeListener(name,listener) {
+    this.emitter.removeListener(name,listener);
   }
 
   componentDidMount() {
@@ -25,14 +33,6 @@ export class MyApp extends Component {
           this.setState({ msg: ""+error });
       });
     }
-  }
-
-  addListener(name,listener) {
-    this.emitter.addListener(name,listener);
-  }
-
-  removeListener(name,listener) {
-    this.emitter.removeListener(name,listener);
   }
 
   login(name,password) {
