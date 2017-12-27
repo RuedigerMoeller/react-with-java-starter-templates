@@ -11,7 +11,7 @@ import org.nustaq.kontraktor.webapp.transpiler.JSXIntrinsicTranspiler;
 import java.io.File;
 
 // DISCLAMER we are node-style single threaded here. Use 'execInThreadPool' to do thread blocking ops such as IO / Database
-// only IPromise and void returning public methods are allowed
+// only IPromise and void returning public methods are allowed, no method overloading
 public class MyApp extends Actor<MyApp> {
 
     @Local
