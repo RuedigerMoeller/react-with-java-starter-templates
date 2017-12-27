@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {KClient} from 'kontraktor-client'; // java connectivity + required by hot reloading internally
+import {KClient,KClientListener} from 'kontraktor-client'; // java connectivity + required by hot reloading internally
 import {EventEmitter} from 'events';
 
 export class MyApp extends Component {
@@ -23,6 +23,19 @@ export class MyApp extends Component {
   componentDidMount() {
     if ( ! this.server ) {
       this.kclient = new KClient().useProxies(false);
+
+      this.kclient.listener = new class extends KClientListener {
+        // session timeout or resurrection fail
+        onInvalidResponse(response) {
+          //TODO enforce full app reset
+          console.error("invalid response",response);
+        }
+        onResurrection() {
+          //TODO refresh app data from server in case
+          console.log("session resurrected. should update client data + resubscribe streams in case")
+        }
+      };
+
       this.kclient.connect("/api")
       .then( (server,error) => { // KPromise (!, differs from ES6 promise unfortunately)
         if ( server ) {
