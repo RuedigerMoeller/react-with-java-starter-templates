@@ -2,22 +2,23 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {KClient} from 'kontraktor-client'; // java connectivity + required by hot reloading internally
 
-let kclient = null;
 export class App extends Component {
 
   constructor(p) {
     super(p);
-    this.state = { msg: ""}
+    this.state = { msg: ""};
+    this.server = null;
   }
 
   componentDidMount() {
-    if ( ! kclient ) {
-      kclient = new KClient().useProxies(false);
-      kclient.connect("/api")
+    if ( ! this.server ) {
+      this.kclient = new KClient().useProxies(false);
+      this.kclient.connect("/api")
       .then( (server,error) => { // KPromise (!, differs from ES6 promise unfortunately)
         if ( server ) {
+          this.server = server;
           server.ask("greet", "me")
-          .then( (greeting, error) => this.setState({ msg:greeting ? greeting : ""+error }) );
+            .then( (greeting, error) => this.setState({ msg:greeting ? greeting : ""+error }) );
         } else
           this.setState({ msg: ""+error });
       });
