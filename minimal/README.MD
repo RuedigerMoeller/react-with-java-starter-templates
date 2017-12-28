@@ -1,4 +1,4 @@
-App Templates
+# App Template
 
 how to scaffold:
 
