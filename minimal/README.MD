@@ -1,9 +1,6 @@
-# App Template
+# Minimal React App Template
 
-how to scaffold:
+Minimal react example with jnpm/bundling/hot reloading. Uses a stateless single threaded Actor Server.
 
-* clone this repo
-* cd react-with-java-starter-templates
-* don't use windoze (scaffolder win support underway)
-* type `java -jar scaffolder.jar [template dir]` e.g. `java -jar scaffolder.jar minimal`
-* create project from pom.xml in your favourite IDE, run app 
+* see main readme on how to scaffold.
+
