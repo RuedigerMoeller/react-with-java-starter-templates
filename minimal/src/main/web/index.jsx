@@ -26,7 +26,9 @@ export class App extends Component {
   }
 
   render() {
-    return <p>Hello React {this.state.msg ? "and "+this.state.msg : '' }!</p>
+    return <div style={{width: "100%", backgroundColor: '#abf', padding: 50}}>
+      <p style={{color: '#fff', fontSize: 30, fontWeight: 'bold'}}>Hello React {this.state.msg ? "and "+this.state.msg : '' }!</p>
+    </div>
   }
 
 }
