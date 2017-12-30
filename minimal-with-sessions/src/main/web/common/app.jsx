@@ -89,7 +89,7 @@ export class MyApp extends Component {
     const pstyle = {color: '#fff', fontWeight: 'bold', fontSize: 20};
     return (
       <div style={{
-        width:"100%", backgroundColor: '#aaf',
+        width:"100%", backgroundColor: '#8bf',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column',
         padding: 20
       }}>
