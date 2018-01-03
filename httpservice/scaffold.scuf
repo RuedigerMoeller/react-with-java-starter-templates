@@ -1,0 +1,52 @@
+Scaffold {
+  require: [
+    "name" 'Name of your Service ?' "MyService"
+    "pack" 'Package of your Service ?' "org.me.myapp"
+  ]
+
+  outputBaseDir: '../{name:dashed}'
+  steps:
+    [
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        ignoredFiles: [ "*.MD" "*.scuf" "*.iml" "*.java" "pom.xml"]
+      }
+
+      # java
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        acceptedFiles: [ "*.java"]
+        dirTransforms: {
+            "/mypackage/" : "/{pack:dir}/"
+        }
+        fileNameTransforms: {
+            "HttpService*" : "{name}"
+        }
+        srcTransforms: {
+            "package mypackage" "package {pack}"
+            "import mypackage" "import {pack}"
+            "HttpService" "{name}"
+            "[..]/httpservice" "[..]/{name:dashed}"
+        }
+      }
+
+      # pom
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        acceptedFiles: [ "pom.xml"]
+        srcTransforms: {
+            "httpservice" "{name:dashed}"
+        }
+      }
+
+      # config
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        acceptedFiles: [ "config.kson"]
+        srcTransforms: {
+            "HttpService" : "{name}"
+        }
+      }
+    ]
+
+}

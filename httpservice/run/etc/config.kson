@@ -1,0 +1,5 @@
+HttpServiceConfig {
+  bindPort: 8091
+  publicUrl: "http://localhost:8090"
+  bindIp: "0.0.0.0"
+}
