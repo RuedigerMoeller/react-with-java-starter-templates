@@ -6,4 +6,5 @@ a request from the client comes in.
 
 Also adds a config file boilerplate + Event Emitter (@ App level, KISS).
 
+* TODO: redirect logging to your favourite logger using `org.nustaq.kontraktor.util.Log#setLogWrapper`
 * see main readme on how to scaffold.
