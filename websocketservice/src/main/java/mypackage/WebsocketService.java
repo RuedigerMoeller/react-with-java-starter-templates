@@ -12,6 +12,10 @@ public class WebsocketService extends Actor<WebsocketService> {
 
     public static WebsocketServiceConfig cfg;
 
+    public IPromise init() {
+        return resolve();
+    }
+
     public static void main(String[] args) {
 
         if ( ! new File("./run/etc/config.kson").exists() ) {
@@ -31,10 +35,6 @@ public class WebsocketService extends Actor<WebsocketService> {
                 .build();
         });
 
-    }
-
-    public IPromise init() {
-        return resolve();
     }
 
 
