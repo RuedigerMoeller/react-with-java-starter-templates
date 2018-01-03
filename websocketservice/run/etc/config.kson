@@ -1,0 +1,5 @@
+WebsocketServiceConfig {
+  bindPort: 8090
+  publicUrl: "ws://localhost:8090"
+  bindIp: "0.0.0.0"
+}
