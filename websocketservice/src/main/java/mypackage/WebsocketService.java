@@ -26,8 +26,8 @@ public class WebsocketService extends Actor<WebsocketService> {
             Log.Info(WebsocketService.class,"starting websocketservice at " + cfg.getBindIp() + ":" + cfg.getBindPort());
             Http4K.Build(cfg.getBindIp(), cfg.getBindPort())
                 .websocket("/ws", app)
-                .serType(SerializerType.JsonNoRef)
-                .buildWebsocket()
+                    .serType(SerializerType.JsonNoRef)
+                    .buildWebsocket()
                 .build();
         });
 
