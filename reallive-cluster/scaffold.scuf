@@ -1,0 +1,46 @@
+Scaffold {
+  require: [
+    "name" 'Name of your Application ?' "MyApp"
+    "pack" 'Package of your Application ?' "org.me.myapp"
+  ]
+
+  outputBaseDir: '../{name:dashed}-cluster'
+  steps:
+    [
+      Step {
+        ignoredDirs: [ build target node_modules data ]
+        ignoredFiles: [ "*.MD" "*.scuf" "*.iml" "*.java" "pom.xml"]
+      }
+
+      # java
+      Step {
+        ignoredDirs: [ build target node_modules data ]
+        acceptedFiles: [ "*.java"]
+        dirTransforms: {
+            "/mypackage/" : "/{pack:dir}/"
+        }
+        fileNameTransforms: {
+            "MyDataCluster*" : "{name}DataCluster"
+            "ServiceTemplate*" : "{name}ServiceTemplate"
+        }
+        srcTransforms: {
+            "package mypackage" "package {pack}"
+            "import mypackage" "import {pack}"
+            "MyDataCluster" "{name}DataCluster"
+            "ServiceTemplate" "{name}ServiceTemplate"
+            "[..]/reallive-cluster" "[..]/{name:dashed}-cluster"
+        }
+      }
+
+      # pom
+      Step {
+        ignoredDirs: [ build target node_modules data ]
+        acceptedFiles: [ "pom.xml"]
+        srcTransforms: {
+            "reallive-cluster" "{name:dashed}-cluster"
+        }
+      }
+
+    ]
+
+}
