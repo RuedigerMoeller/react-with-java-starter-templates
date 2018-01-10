@@ -37,12 +37,12 @@ public class HttpService extends Actor<HttpService> {
 
     }
 
-    /////////////////////////////////////////////////////////
-    // rest api
-
     @Local public IPromise init() {
         return resolve();
     }
+
+    /////////////////////////////////////////////////////////
+    // rest api
 
     // see kontraktor wiki on how rest requests are mapped to methods
 
