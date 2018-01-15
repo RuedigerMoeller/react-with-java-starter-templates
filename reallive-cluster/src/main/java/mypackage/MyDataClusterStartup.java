@@ -28,7 +28,7 @@ public class MyDataClusterStartup {
         ClusterCfg cfg = ClusterCfg.read();
         for ( int i = 0; i < cfg.getDataCluster().getNumberOfShards(); i++ ) {
             final int finalI = i;
-            ex.execute(() -> DataShard.main(new String[]{"-shardNo", ""+ finalI }));
+            ex.execute(() -> DataShard.main(new String[]{ "-host", "localhost", "-shardNo", ""+ finalI }));
         }
     }
 
