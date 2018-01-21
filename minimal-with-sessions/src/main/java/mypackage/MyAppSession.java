@@ -19,7 +19,7 @@ public class MyAppSession extends Actor<MyAppSession> implements RemotedActor {
         this.pwd = pwd;
     }
 
-    public IPromise greetFromSession() {
+    public IPromise greetSession() {
         return new Promise("Greetz from session of user "+userName);
     }
 

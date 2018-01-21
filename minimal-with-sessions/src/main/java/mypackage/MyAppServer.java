@@ -39,7 +39,7 @@ public class MyAppServer extends Actor<MyAppServer> implements SessionResurrecto
     }
 
     // public example method (no login required)
-    public IPromise greet(String who) {
+    public IPromise greetServer(String who) {
         return resolve("Hello "+who);
     }
 
