@@ -1,0 +1,46 @@
+ClusterCfg {
+  publicHostUrl: "http://localhost:8081"
+  dataCluster:
+    DataCfg {
+      dataDir: [
+      "run/data/real-live/node0"
+       # "run/data/real-live/node1"
+       # "run/data/real-live/node2"
+      ]
+      schema:
+        [
+          {
+            name: links
+            sizeMB: 1000
+            filePath: USE_BASE_DIR
+            storageType: CACHED
+          }
+          {
+            name: user
+            sizeMB: 1000
+            filePath: USE_BASE_DIR
+            storageType: CACHED
+          }
+          {
+            name: comment
+            sizeMB: 1000
+            filePath: USE_BASE_DIR
+            storageType: CACHED
+          }
+          {
+            name: commentHistory
+            sizeMB: 1000
+            filePath: USE_BASE_DIR
+            storageType: CACHED
+          }
+          {
+            name: session2user
+            sizeMB: 1000
+            filePath: USE_BASE_DIR
+            storageType: CACHED
+          }
+        ]
+
+      shardQSize: 64000
+    }
+}

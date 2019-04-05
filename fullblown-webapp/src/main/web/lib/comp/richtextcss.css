@@ -1,0 +1,40 @@
+.rte-semantic {
+    background: #f8f8f8;
+    border: none;
+}
+
+.rte-semantic-disabled {
+    background: white;
+    border: none;
+}
+
+.DraftEditor-root {
+    border: none;
+}
+
+.RichTextEditor__root___2QXK- {
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+    font-family: Georgia,serif;
+    font-size: 14px;
+}
+
+.DraftEditor-editorContainer {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+.EditorToolbar__root___3_Aqz {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    margin: 0 10px;
+    padding: 10px 0 5px;
+    border-bottom: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

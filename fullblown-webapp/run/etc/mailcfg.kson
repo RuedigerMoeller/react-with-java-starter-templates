@@ -1,0 +1,21 @@
+MailCfg {
+  user: 'noreply@medulife.cloud'
+  password: ''
+  smtpHost: 'myapp.io'
+  smtpPort: 587
+  smtpAuth: true
+  startTls: true
+
+  channelConf: [
+    {
+      symbolicName: 'default'
+      email: 'noreply@myapp.io'
+      displayName: 'noreply@myapp.io'
+    },
+    {
+      symbolicName: 'registration'
+      email: 'registration@myapp.io'
+      displayName: 'registration@myapp.io'
+    }
+  ]
+}

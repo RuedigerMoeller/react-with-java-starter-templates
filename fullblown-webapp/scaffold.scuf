@@ -1,0 +1,53 @@
+Scaffold {
+  require: [
+    "name" 'Name of your Application ?' "MyApp"
+    "pack" 'Package of your Application ?' "org.me.myapp"
+  ]
+
+  outputBaseDir: '../{name:dashed}'
+  steps:
+    [
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        ignoredFiles: [ "*.MD" "*.scuf" "*.iml" "*.java" "pom.xml" ]
+      }
+
+      # java
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        acceptedFiles: [ "*.java"]
+        dirTransforms: {
+            "/mypackage/" : "/{pack:dir}/"
+        }
+        fileNameTransforms: {
+            "MyApp*" : "{name}"
+        }
+        srcTransforms: {
+            "package mypackage" "package {pack}"
+            "import mypackage" "import {pack}"
+            "MyApp" "{name}"
+            "[..]/fullblown-webapp" "[..]/{name:dashed}"
+        }
+      }
+
+      # pom
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        acceptedFiles: [ "pom.xml"]
+        srcTransforms: {
+            "fullblown-webapp" "{pack}"
+            "MyApp" "{name:dashed}"
+        }
+      }
+
+      # config
+      Step {
+        ignoredDirs: [ build target node_modules ]
+        acceptedFiles: [ "*.kson"]
+        srcTransforms: {
+            "MyApp" : "{name}"
+        }
+      }
+    ]
+
+}

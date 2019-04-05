@@ -1,0 +1,26 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "draft-js": "^0.10.5",
+    "events": "3.0.0",
+    "immutable": "^3.8.2",
+    "install": "^0.12.2",
+    "kontraktor-client": "4.26.0",
+    "npm": "^6.8.0",
+    "react": "16.7.0",
+    "react-dom": "16.7.0",
+    "react-dropzone": "4.2.9",
+    "react-image-crop": "6.0.12",
+    "react-medium-editor": "^1.8.1",
+    "react-rte": "^0.16.1",
+    "semantic-ui-react": "0.84.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
