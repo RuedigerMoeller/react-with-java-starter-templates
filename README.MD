@@ -11,5 +11,6 @@ React related templates:
 
 * minimal
 * minimal-with-session
+* fullblown webapp - reallive-persistance, webserver for react webapp including registration, login an d profile based on semantic ui + some starting framework
 
 other templates focus on http/websocket services and other (partially undocumented) parts of the kontraktor 'universe' :).
